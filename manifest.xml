@@ -1,0 +1,16 @@
+<package>
+  <description brief="vscore_stream">
+
+     A camera node for stream from vs_core
+
+  </description>
+  <author>Pierre Gergondet</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/vscore_stream</url>
+  <depend package="image_transport"/>
+  <depend package="roscpp"/>
+
+</package>
+
+
