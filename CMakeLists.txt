@@ -26,6 +26,7 @@ find_package( vision )
 find_package( visionsystem )
 include_directories( ${VISIONSYSTEM_INCLUDE_DIRS} )
 link_directories( "${VISIONSYSTEM_LIBRARY_DIRS}" ${VISIONSYSTEM_LIBRARY_DIRS}/vs_controllers )
+set(LIBRARY_OUTPUT_PATH ${VISIONSYSTEM_LIBRARY_DIRS}/vs_plugins)
 
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
@@ -38,3 +39,6 @@ rosbuild_add_boost_directories()
 rosbuild_add_executable(vscore_stream src/vscore_stream.cpp)
 target_link_libraries(vscore_stream socket visionsystem ${VISION_LIBRARIES} ${CONFIGPARSER_LIBRARIES} )
 rosbuild_link_boost(vscore_stream filesystem system thread)
+
+rosbuild_add_library(vscore_publisher src/vscore_publisher.cpp)
+target_link_libraries(vscore_publisher visionsystem ${VISION_LIBRARIES})
