@@ -15,10 +15,6 @@ int main(int argc, char * argv[])
 
     ros::init(argc, argv, "vscore_stream");
     std::cout << argc << std::endl;
-    for(unsigned int i = 0; i < argc; ++i)
-    {
-        std::cout << argv[i] << std::endl;
-    }
 
     ros::NodeHandle n;
 
