@@ -12,9 +12,13 @@ int main(int argc, char * argv[])
         return 1;
     }
     std::string config = argv[1];
+    std::string frame_id = "/camera_rgb_optical_frame";
+    if(argc > 3)
+    {
+        frame_id = argv[2];
+    }
 
     ros::init(argc, argv, "vscore_stream");
-    std::cout << argc << std::endl;
 
     ros::NodeHandle n;
 
@@ -56,6 +60,7 @@ int main(int argc, char * argv[])
             sensor_msgs::ImagePtr img(new sensor_msgs::Image);
             info->header.seq++;
             info->header.stamp = ros::Time::now();
+            info->header.frame_id = frame_id;
             img->header = info->header;
             img->height = 480;
             img->width = 640;
